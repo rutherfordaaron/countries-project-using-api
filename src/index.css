@@ -3,16 +3,18 @@
   --text-color: black;
   --background-color: hsl(0, 0%, 98%);
   --input-color: hsl(0, 0%, 52%);
-  --elements-background: hsl(0, 0%, 100%);
+  --elements-background: white;
   --theme-filter: invert(0%) sepia(7%) saturate(6%) hue-rotate(323deg) brightness(100%) contrast(100%);
+  --shadow-color: hsl(0, 0%, 78%);
 }
 
 [data-theme=dark] {
   --text-color: white;
   --background-color: hsl(207, 26%, 17%);
-  --input-color: hsl(0, 0%, 100%);
+  --input-color: hsl(0, 0%, 52%);
   --elements-background: hsl(209, 23%, 22%);
   --theme-filter: invert(100%) sepia(75%) saturate(648%) hue-rotate(182deg) brightness(114%) contrast(101%);
+  --shadow-color: hsl(207, 26%, 14%);
 }
 
 html {
@@ -33,6 +35,8 @@ body {
   align-items: center;
   background-color: var(--elements-background);
   padding: 20px;
+  box-shadow: 0 0 5px 2px var(--shadow-color);
+  margin-bottom: 30px;
 }
 .app header h1 {
   font-size: 16px;
@@ -53,6 +57,70 @@ body {
   height: auto;
   margin-right: 5px;
   filter: var(--theme-filter);
+}
+.app main .countryGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+.app main .countryGrid .tile {
+  background-color: var(--elements-background);
+  border: none;
+  border-radius: 4px;
+  color: inherit;
+  width: 300px;
+  height: 400px;
+  padding: 0;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 0 10px 5px var(--shadow-color);
+}
+.app main .countryGrid .tile img {
+  height: 225px;
+  max-width: 300px;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  margin: 0 auto;
+}
+.app main .countryGrid .tile .tileText {
+  padding: 20px;
+  width: calc(100% - 40px);
+  height: 175px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.app main .countryGrid .tile .tileText p {
+  text-align: left;
+}
+.app main .countryGrid .tile .tileText .boldText {
+  font-weight: 600;
+}
+.app main .countryGrid .tile .tileText .noSpace {
+  padding: 0;
+  margin: 3px 0;
+}
+.app main .countryGrid .tile .tileText .countryName {
+  font-weight: 800;
+  font-size: 16px;
+}
+
+@media (min-width: 690px) {
+  .app main .countryGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 1050px) {
+  .app main .countryGrid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media (min-width: 1410px) {
+  .app main .countryGrid {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
 }
 
 /*# sourceMappingURL=index.css.map */
