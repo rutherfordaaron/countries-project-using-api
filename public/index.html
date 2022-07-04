@@ -8,9 +8,16 @@
   <title>Countries Project Using API</title>
 </head>
 
-<body>
+<body data-theme="light">
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <div id="root"></div>
+  <script>
+    if (localStorage.getItem('theme') !== 'light' && localStorage.getItem('theme') !== 'dark') {
+      document.body.setAttribute('data-theme', 'light');
+    } else {
+      document.body.setAttribute('data-theme', localStorage.getItem('theme'));
+    }
+  </script>
 </body>
 
 </html>

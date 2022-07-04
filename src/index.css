@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap");
+[data-theme=light] {
+  --text-color: black;
+  --background-color: hsl(0, 0%, 98%);
+  --input-color: hsl(0, 0%, 52%);
+  --elements-background: hsl(0, 0%, 100%);
+  --theme-filter: invert(0%) sepia(7%) saturate(6%) hue-rotate(323deg) brightness(100%) contrast(100%);
+}
+
+[data-theme=dark] {
+  --text-color: white;
+  --background-color: hsl(207, 26%, 17%);
+  --input-color: hsl(0, 0%, 100%);
+  --elements-background: hsl(209, 23%, 22%);
+  --theme-filter: invert(100%) sepia(75%) saturate(648%) hue-rotate(182deg) brightness(114%) contrast(101%);
+}
+
+html {
+  font-size: 14px;
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 600;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin: 0;
+}
+
+.app header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--elements-background);
+  padding: 20px;
+}
+.app header h1 {
+  font-size: 16px;
+  font-weight: 800;
+}
+.app header .themeSwitch {
+  display: flex;
+  align-items: center;
+  font-size: inherit;
+  background-color: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  border: none;
+  color: inherit;
+}
+.app header .themeSwitch img {
+  width: 14px;
+  height: auto;
+  margin-right: 5px;
+  filter: var(--theme-filter);
+}
+
+/*# sourceMappingURL=index.css.map */
