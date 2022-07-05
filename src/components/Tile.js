@@ -1,6 +1,6 @@
 const Tile = (props) => {
   return (
-    <button className='tile' type='button'>
+    <div className='tile'>
       <img src={props.flag} className='flag' alt={`${props.name} flag`} />
       <div className="tileText">
         <p className='countryName'>{props.name}</p>
@@ -8,7 +8,8 @@ const Tile = (props) => {
         <p className='noSpace'><span className='boldText'>Region</span>: {props.region}</p>
         <p className='noSpace'><span className='boldText'>Capital</span>: {props.capital}</p>
       </div>
-    </button>
+      <button type='button' onClick={props.onClick} value={props.name} className='psuedoButton' />
+    </div>
   )
 }
 
