@@ -91,7 +91,7 @@ body {
   margin: 0 20px;
 }
 .app main .search img:hover {
-  animation: spin 0.2s;
+  animation: spin 0.4s;
   cursor: pointer;
 }
 .app main .search input {
@@ -175,7 +175,7 @@ body {
   border-radius: 4px;
   color: inherit;
   width: 300px;
-  height: 400px;
+  height: 440px;
   padding: 0;
   margin: 0 auto;
   display: flex;
@@ -185,7 +185,7 @@ body {
   position: relative;
 }
 .app main .countryGrid .tile img {
-  height: 225px;
+  height: 220px;
   max-width: 300px;
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
@@ -194,7 +194,7 @@ body {
 .app main .countryGrid .tile .tileText {
   padding: 20px;
   width: calc(100% - 40px);
-  height: 175px;
+  height: 220px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -253,6 +253,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: calc(100vw - 32px);
 }
 .app main .details .detailsContent .detailsInfo .detailsText .left,
 .app main .details .detailsContent .detailsInfo .detailsText .right {

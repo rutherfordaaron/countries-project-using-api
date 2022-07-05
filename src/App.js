@@ -159,6 +159,7 @@ const App = () => {
               return (
                 <Tile
                   name={element['name']}
+                  commonName={element['commonName']}
                   population={element['population']}
                   region={element['region']}
                   capital={element['capital']}
