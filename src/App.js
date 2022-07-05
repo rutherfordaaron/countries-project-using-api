@@ -40,6 +40,41 @@ const App = () => {
     }
   }
 
+  const toggleFilter = () => {
+    const filters = document.getElementById('regionOptions');
+    if (filters.classList.contains('hide')) {
+      filters.classList.remove('hide');
+    } else {
+      filters.classList.add('hide');
+    }
+  }
+
+  const setFilter = (e) => {
+    switch (e.target.value) {
+      case 'africa':
+        setRegion('Africa');
+        break;
+      case 'america':
+        setRegion('America');
+        break;
+      case 'asia':
+        setRegion('Asia');
+        break;
+      case 'europe':
+        setRegion('Europe');
+        break;
+      case 'oceania':
+        setRegion('Oceania');
+        break;
+      case 'any':
+        setRegion('');
+      default:
+        console.log(`region doesn't exist`);
+    }
+
+    toggleFilter();
+  }
+
   let countryTiles = [];
 
   let request = new XMLHttpRequest();
@@ -73,10 +108,20 @@ const App = () => {
           <img className='filter' src={searchIcon} alt='' />
           <input id='searchInput' onKeyDown={searchChange} type='text' placeholder='Search for a country...' />
         </div>
-        <button className='regionFilter'>
-          <p>Filter by Region</p>
-          <img src={downIcon} className='filter' alt='' />
-        </button>
+        <div className='regionContainer'>
+          <button className='regionFilter' type='button' onClick={toggleFilter}>
+            <p>{region === '' ? 'Filter by Region' : region}</p>
+            <img src={downIcon} className='filter' alt='' />
+          </button>
+          <div className='regionOptions hide' id='regionOptions'>
+            <button className='regionChoice' type='button' value='africa' onClick={setFilter}>Africa</button>
+            <button className='regionChoice' type='button' value='america' onClick={setFilter}>America</button>
+            <button className='regionChoice' type='button' value='asia' onClick={setFilter}>Asia</button>
+            <button className='regionChoice' type='button' value='europe' onClick={setFilter}>Europe</button>
+            <button className='regionChoice' type='button' value='oceania' onClick={setFilter}>Oceania</button>
+            <button className='regionChoice' type='button' value='any' onClick={setFilter}>Any</button>
+          </div>
+        </div>
         <div className='countryGrid'>
           {countryTiles.filter(country => country.name.includes(search) && country.region.includes(region)).map((element, i) => {
             return (

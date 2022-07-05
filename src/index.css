@@ -4,6 +4,7 @@
   --background-color: hsl(0, 0%, 98%);
   --input-color: hsl(0, 0%, 52%);
   --elements-background: white;
+  --hover-color: hsl(0, 0%, 80%);
   --theme-filter: invert(0%) sepia(7%) saturate(6%) hue-rotate(323deg) brightness(100%) contrast(100%);
   --shadow-color: hsl(0, 0%, 78%);
 }
@@ -13,6 +14,7 @@
   --background-color: hsl(207, 26%, 17%);
   --input-color: hsl(0, 0%, 52%);
   --elements-background: hsl(209, 23%, 22%);
+  --hover-color: hsl(209, 23%, 30%);
   --theme-filter: invert(100%) sepia(75%) saturate(648%) hue-rotate(182deg) brightness(114%) contrast(101%);
   --shadow-color: hsl(207, 26%, 14%);
 }
@@ -62,6 +64,9 @@ body {
   margin-right: 5px;
   filter: var(--theme-filter);
 }
+.app header .themeSwitch:hover {
+  cursor: pointer;
+}
 .app main .search {
   background-color: var(--elements-background);
   padding: 10px 0;
@@ -90,7 +95,12 @@ body {
 .app main .search ::placeholder {
   color: var(--text-color);
 }
-.app main .regionFilter {
+.app main .regionContainer {
+  width: 155px;
+  margin: 0 auto;
+  position: relative;
+}
+.app main .regionContainer .regionFilter {
   background-color: var(--elements-background);
   color: inherit;
   border: none;
@@ -101,11 +111,45 @@ body {
   margin: 20px auto;
   border-radius: 4px;
   box-shadow: 0 0 5px 1px var(--shadow-color);
+  width: 155px;
 }
-.app main .regionFilter img {
+.app main .regionContainer .regionFilter p {
+  text-align: left;
+  width: 95px;
+}
+.app main .regionContainer .regionFilter img {
   width: 10px;
   height: auto;
   margin-left: 30px;
+}
+.app main .regionContainer .regionFilter:hover {
+  cursor: pointer;
+  background-color: var(--hover-color);
+}
+.app main .regionContainer .regionOptions {
+  background-color: var(--elements-background);
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  border-radius: 4px;
+  box-shadow: 0 0 5px 1px var(--shadow-color);
+  padding: 4px 0;
+}
+.app main .regionContainer .regionOptions .regionChoice {
+  background-color: transparent;
+  border: none;
+  width: 100%;
+  color: inherit;
+  text-align: left;
+  padding: 4px 10px;
+  width: 155px;
+}
+.app main .regionContainer .regionOptions .regionChoice:hover {
+  cursor: pointer;
+  background-color: var(--hover-color);
+}
+.app main .regionContainer .hide {
+  display: none;
 }
 .app main .countryGrid {
   display: grid;
