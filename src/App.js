@@ -105,6 +105,11 @@ const App = () => {
     toggleFilter();
   }
 
+  const toTop = () => {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+
   const tileClick = (e) => {
     const country = e.target.value;
     console.log(e.target.value);
@@ -115,6 +120,7 @@ const App = () => {
     }
 
     setSearch('');
+    toTop();
     toggleDetails();
   }
 
