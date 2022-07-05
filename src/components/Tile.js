@@ -9,7 +9,7 @@ const Tile = (props) => {
         <p className='noSpace'><span className='boldText'>Region</span>: {props.region}</p>
         <p className='noSpace'><span className='boldText'>Capital</span>: {props.capital}</p>
       </div>
-      <button type='button' onClick={props.onClick} value={props.name} className='psuedoButton' />
+      <button type='button' onClick={props.onClick} value={props.name} className='psuedoButton'>Country Details</button>
     </div>
   )
 }

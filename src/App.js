@@ -200,7 +200,7 @@ const App = () => {
       <div className='app'>
         <header>
           <p className='logo'>Where in the world?</p>
-          <button className='themeSwitch' type='button' onClick={themeSwitch}><img alt='' id='themeIcon' src={theme === 'dark' ? moonIcon : sunIcon} />{theme} mode</button>
+          <button className='themeSwitch' type='button' onClick={themeSwitch}><img alt='' id='themeIcon' src={theme === 'dark' ? sunIcon : moonIcon} />{theme === 'dark' ? 'Light' : 'Dark'} mode</button>
         </header>
         <main>
           <Details country={details} close={toggleDetails} countryInfo={countryInfo} />
