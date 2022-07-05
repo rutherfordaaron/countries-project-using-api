@@ -88,11 +88,22 @@ body {
       border-radius: 4px;
       box-shadow: var(--box-shadow);
 
+      @keyframes spin {
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
 
       img {
         width: 14px;
         height: auto;
         margin: 0 20px;
+      }
+
+      img:hover {
+        animation: spin 0.2s;
+        cursor: pointer;
       }
 
       input {
@@ -308,6 +319,7 @@ body {
             border-radius: 4px;
             padding: 10px;
             margin: 10px;
+            color: inherit;
           }
 
           .borderButton:hover {

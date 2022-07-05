@@ -10,7 +10,7 @@ const Details = (props) => {
   let borderCountries = [];
 
   for (let i = 0; i < props.countryInfo.length; i++) {
-    if (country.borders.indexOf(props.countryInfo[i].code) != -1) {
+    if (country.borders !== undefined && country.borders.indexOf(props.countryInfo[i].code) !== -1) {
       borderCountries.push({
         name: props.countryInfo[i].name,
         commonName: props.countryInfo[i].commonName
@@ -48,7 +48,7 @@ const Details = (props) => {
         <div className='detailsInfo'>
           <h1>{country.name}</h1>
           <div className='detailsText'>
-            <div classNamem='left'>
+            <div className='left'>
               <p>
                 <span className="boldText">Native Name</span>
                 <span className='weakText'>: {country.nativeName[nativeNameArr[0]].common}</span>
@@ -82,7 +82,7 @@ const Details = (props) => {
             </div>
           </div>
           <p>Border Countries:</p>
-          <div class='borderContainer'>
+          <div className='borderContainer'>
             {borderCountries.map((el, i) => {
               return (
                 <button

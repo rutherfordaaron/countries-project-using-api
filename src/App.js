@@ -58,28 +58,24 @@ const App = () => {
     }
   }
 
-  const searchChange = (e) => {
+  const handleIconClick = () => {
+    changeSearch();
+  }
+
+  const handleKeyPress = (e) => {
     if (e.which === 13) {
-      if (e.target.value !== '') {
-        let temp = e.target.value.toLowerCase().split(' ');
-        for (let i = 0; i < temp.length; i++) {
-          temp[i] = temp[i][0].toUpperCase() + temp[i].slice(1);
-        }
-        setSearch(temp);
-        e.target.value = temp;
-      } else {
-        setSearch('');
-      }
+      changeSearch();
     }
+  }
+
+  const changeSearch = () => {
+    const input = document.getElementById('searchInput');
+    setSearch(input.value);
   }
 
   const toggleFilter = () => {
     const filters = document.getElementById('regionOptions');
-    if (filters.classList.contains('hide')) {
-      filters.classList.remove('hide');
-    } else {
-      filters.classList.add('hide');
-    }
+    filters.classList.toggle('hide');
   }
 
   const setFilter = (e) => {
@@ -118,6 +114,7 @@ const App = () => {
       }
     }
 
+    setSearch('');
     toggleDetails();
   }
 
@@ -134,8 +131,8 @@ const App = () => {
         </header>
         <main>
           <div className='search'>
-            <img className='filter' src={searchIcon} alt='' />
-            <input id='searchInput' onKeyDown={searchChange} type='text' placeholder='Search for a country...' />
+            <img className='filter' id='serchIcon' src={searchIcon} alt='' onClick={handleIconClick} />
+            <input id='searchInput' onKeyDown={handleKeyPress} type='text' placeholder='Search for a country...' />
           </div>
           <div className='regionContainer'>
             <button className='regionFilter' type='button' onClick={toggleFilter}>
@@ -152,7 +149,7 @@ const App = () => {
             </div>
           </div>
           <div className='countryGrid'>
-            {countryInfo.filter(country => country.name.includes(search) && country.region.includes(region)).map((element, i) => {
+            {countryInfo.filter(country => (country.name.toLowerCase().includes(search.toLowerCase()) && country.region.includes(region)) || (country.commonName.toLowerCase().includes(search.toLowerCase()) && country.region.includes(region))).map((element, i) => {
               return (
                 <Tile
                   name={element['name']}
