@@ -50,6 +50,10 @@ const Details = (props) => {
           <div className='detailsText'>
             <div className='left'>
               <p>
+                <span className="boldText">Common Name</span>
+                <span className='weakText'>: {country.commonName}</span>
+              </p>
+              <p>
                 <span className="boldText">Native Name</span>
                 <span className='weakText'>: {country.nativeName[nativeNameArr[0]].common}</span>
               </p>
@@ -81,7 +85,7 @@ const Details = (props) => {
               </p>
             </div>
           </div>
-          <p>Border Countries:</p>
+          <h2>Border Countries:</h2>
           <div className='borderContainer'>
             {borderCountries.map((el, i) => {
               return (
