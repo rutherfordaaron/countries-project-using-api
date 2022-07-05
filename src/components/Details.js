@@ -18,6 +18,11 @@ const Details = (props) => {
     }
   }
 
+  const toTop = () => {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+
   for (let i = 0; i < languagesArr.length; i++) {
     if (i !== languagesArr.length - 1) {
       countryLanguages += `${country.languages[languagesArr[i]]}, `;
@@ -35,6 +40,7 @@ const Details = (props) => {
       }
     }
     setCountry(newCountry);
+    toTop();
   }
 
   return (
