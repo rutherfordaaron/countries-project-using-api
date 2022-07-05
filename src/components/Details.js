@@ -2,13 +2,19 @@ import { useState } from 'react';
 import backIcon from '../icons/arrow-left-long-solid.svg';
 
 const Details = (props) => {
+  // State for what country to display details for
   let [country, setCountry] = useState(props.country)
+
+  // Convert some object to arrays for access since I won't know the key values
   const nativeNameArr = Object.keys(country.nativeName)
   const currenciesArr = Object.keys(country.currency);
   const languagesArr = Object.keys(country.languages);
+
+  // Initialize some empty variables for adding into
   let countryLanguages = '';
   let borderCountries = [];
 
+  // Get the official and common names of the border countries from the data provided and put it in the borderCountries array
   for (let i = 0; i < props.countryInfo.length; i++) {
     if (country.borders !== undefined && country.borders.indexOf(props.countryInfo[i].code) !== -1) {
       borderCountries.push({
@@ -18,11 +24,13 @@ const Details = (props) => {
     }
   }
 
+  // Scroll to top when called
   const toTop = () => {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
   }
 
+  // Extract languages from data and put it all into one string
   for (let i = 0; i < languagesArr.length; i++) {
     if (i !== languagesArr.length - 1) {
       countryLanguages += `${country.languages[languagesArr[i]]}, `;
@@ -31,12 +39,13 @@ const Details = (props) => {
     }
   }
 
+  // Change shich country details are displayed when a border country button is clicked
+  // Then scroll to top
   const borderClick = (e) => {
     let newCountry = {}
     for (let i = 0; i < props.countryInfo.length; i++) {
       if (props.countryInfo[i].name === e.target.value) {
         newCountry = props.countryInfo[i];
-        console.log(newCountry.name);
       }
     }
     setCountry(newCountry);

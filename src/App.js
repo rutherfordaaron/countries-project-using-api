@@ -9,11 +9,14 @@ import downIcon from './icons/chevron-down-solid.svg';
 
 import './index.css';
 
+// Initialize empty array for storing data recieved fromt he API
 let countryInfo = [];
 
+// Request from the API
 let request = new XMLHttpRequest();
 request.open('GET', 'https://restcountries.com/v3.1/all', false);
 
+// Once request is loaded, extract needed data
 request.onload = () => {
   let data = JSON.parse(request.response);
   data.forEach(country => {
@@ -40,14 +43,18 @@ request.onload = () => {
 request.send();
 
 const App = () => {
+  // State to store light mode and dark mode
   const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
+  // Store theme in local storage to persist over refresh and close
   useEffect(() => localStorage.setItem('theme', theme));
 
+  // State variables to hold the current search, the region to filter by, the country to show details from, and a boolean if details should be rendered
   const [search, setSearch] = useState('');
   const [region, setRegion] = useState('');
   const [details, setDetails] = useState({});
   const [renderDetails, setRenderDetails] = useState(false);
 
+  // Swap the theme from light to dark or vice versa
   const themeSwitch = () => {
     if (theme === 'light') {
       setTheme('dark');
@@ -58,26 +65,31 @@ const App = () => {
     }
   }
 
+  // Change search parameters when the magnifying glass is clicked
   const handleIconClick = () => {
     changeSearch();
   }
 
+  // Change search parameters when enter is pressed while typing in the search bar
   const handleKeyPress = (e) => {
     if (e.which === 13) {
       changeSearch();
     }
   }
 
+  // Change serach parameters to be the value of what's in the search bar
   const changeSearch = () => {
     const input = document.getElementById('searchInput');
     setSearch(input.value);
   }
 
+  // Toggle the region filter options between visible and hidden
   const toggleFilter = () => {
     const filters = document.getElementById('regionOptions');
     filters.classList.toggle('hide');
   }
 
+  // Set the region filter to the selected region
   const setFilter = (e) => {
     switch (e.target.value) {
       case 'africa':
@@ -105,11 +117,14 @@ const App = () => {
     toggleFilter();
   }
 
+  // Scroll to the top of the page
   const toTop = () => {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
   }
 
+  // When a country tile is clicked, set details to the country that was selected
+  // Scroll to the top and render the details
   const tileClick = (e) => {
     const country = e.target.value;
     console.log(e.target.value);
@@ -124,10 +139,12 @@ const App = () => {
     toggleDetails();
   }
 
+  // Toggle between details and main page
   const toggleDetails = () => {
     setRenderDetails(!renderDetails);
   }
 
+  // If renderDetails is not true, render app, otherwise render details
   if (!renderDetails) {
     return (
       <div className='app'>
@@ -170,10 +187,11 @@ const App = () => {
               )
             })}
           </div>
-
         </main>
         <footer>
-
+          <p>Coded by <a href='github.com/Hazipan'>Aaron Rutherford</a>.</p>
+          <p>Project by <a href='frontendmentor.io'>Frontend Mentor</a>.</p>
+          <a href='github.com/Hazipan/countries-project-using-api'>See the code!</a>
         </footer>
       </div>
     )
@@ -188,7 +206,9 @@ const App = () => {
           <Details country={details} close={toggleDetails} countryInfo={countryInfo} />
         </main>
         <footer>
-
+          <p>Coded by <a href='github.com/Hazipan'>Aaron Rutherford</a>.</p>
+          <p>Project by <a href='frontendmentor.io'>Frontend Mentor</a>.</p>
+          <a href='github.com/Hazipan/countries-project-using-api'>See the code!</a>
         </footer>
       </div>
     )

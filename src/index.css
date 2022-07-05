@@ -8,6 +8,7 @@
   --theme-filter: invert(0%) sepia(7%) saturate(6%) hue-rotate(323deg) brightness(100%) contrast(100%);
   --shadow-color: hsl(0, 0%, 78%);
   --box-shadow: 0 0 5px 2px var(--shadow-color);
+  --link-color: hsl(200, 100%, 20%);
 }
 
 [data-theme=dark] {
@@ -19,6 +20,7 @@
   --theme-filter: invert(100%) sepia(75%) saturate(648%) hue-rotate(182deg) brightness(114%) contrast(101%);
   --shadow-color: hsl(207, 26%, 14%);
   --box-shadow: 0 0 5px 2px var(--shadow-color);
+  --link-color: hsl(200, 100%, 80%);
 }
 
 html {
@@ -277,6 +279,13 @@ body {
 }
 .app main .details .detailsContent .borderContainer .borderButton:hover {
   background-color: var(--hover-color);
+}
+.app footer {
+  background-color: var(--elements-background);
+  padding: 10px;
+}
+.app footer a {
+  color: var(--link-color);
 }
 
 @media (min-width: 690px) {
