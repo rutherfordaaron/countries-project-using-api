@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom'
 import backIcon from '../icons/arrow-left-long-solid.svg';
 
 const Details = (props) => {
@@ -54,11 +55,11 @@ const Details = (props) => {
 
   return (
     <div className="details" id='details'>
-      <button onClick={props.close} className='backButton'>
+      <Link to="/" className='backButton'>
         <img src={backIcon} alt='' className='filter' />
         <p>Back</p>
-      </button>
-      <div className='detailsContent'>
+      </Link>
+      <main className='detailsContent'>
         <img src={country.flag} alt={`${country.name} flag`} className='flag' />
         <div className='detailsInfo'>
           <h1>{country.name}</h1>
@@ -116,7 +117,12 @@ const Details = (props) => {
             })}
           </div>
         </div>
-      </div>
+      </main>
+      <footer>
+        <p>Coded by <a href='github.com/Hazipan'>Aaron Rutherford</a>.</p>
+        <p>Project by <a href='frontendmentor.io'>Frontend Mentor</a>.</p>
+        <a href='github.com/Hazipan/countries-project-using-api'>See the code!</a>
+      </footer>
     </div>
   )
 }
