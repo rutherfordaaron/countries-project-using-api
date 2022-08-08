@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/countries-project-using-api/static/css/main.61699444.css",
-    "main.js": "/countries-project-using-api/static/js/main.0706bb8b.js",
+    "main.css": "/countries-project-using-api/static/css/main.6e52c434.css",
+    "main.js": "/countries-project-using-api/static/js/main.db3fb029.js",
     "static/media/sun-solid.svg": "/countries-project-using-api/static/media/sun-solid.4f202eaec73ceeb5c2612e3fd0bcc567.svg",
     "index.html": "/countries-project-using-api/index.html",
     "static/media/magnifying-glass-solid.svg": "/countries-project-using-api/static/media/magnifying-glass-solid.cd761af2e6d53d07ac6129e7f885fa95.svg",
     "static/media/moon-solid.svg": "/countries-project-using-api/static/media/moon-solid.24663276c05fe9e5c5d44c7b22966454.svg",
     "static/media/arrow-left-long-solid.svg": "/countries-project-using-api/static/media/arrow-left-long-solid.d01996be9d883f8bee19a58f82eb8b6b.svg",
     "static/media/chevron-down-solid.svg": "/countries-project-using-api/static/media/chevron-down-solid.d412cd9394e18226142d84b0d39b623f.svg",
-    "main.61699444.css.map": "/countries-project-using-api/static/css/main.61699444.css.map",
-    "main.0706bb8b.js.map": "/countries-project-using-api/static/js/main.0706bb8b.js.map"
+    "main.6e52c434.css.map": "/countries-project-using-api/static/css/main.6e52c434.css.map",
+    "main.db3fb029.js.map": "/countries-project-using-api/static/js/main.db3fb029.js.map"
   },
   "entrypoints": [
-    "static/css/main.61699444.css",
-    "static/js/main.0706bb8b.js"
+    "static/css/main.6e52c434.css",
+    "static/js/main.db3fb029.js"
   ]
 }
