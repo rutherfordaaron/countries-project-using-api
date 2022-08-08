@@ -121,7 +121,7 @@ const Details = (props) => {
       <footer>
         <p>Coded by <a href='github.com/Hazipan'>Aaron Rutherford</a>.</p>
         <p>Project by <a href='frontendmentor.io'>Frontend Mentor</a>.</p>
-        <a href='github.com/Hazipan/countries-project-using-api'>See the code!</a>
+        <a href='https://github.com/Hazipan/countries-project-using-api'>See the code!</a>
       </footer>
     </div>
   )
